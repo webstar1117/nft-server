@@ -60,6 +60,24 @@ app.post('/upload-single', upload.single('image-file'), function (req, res, next
 
 })
 
+app.post('/load-images', function (req, res, next) {
+    // req.file is the `profile-file` file
+    // req.body will hold the text fields, if there were any
+    try {
+        var sql = "SELECT * from images";
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+        res.status(200).json(result);
+    } catch (e) {
+        return res.status(401).send({
+            message: e.message
+        });
+    }
+
+})
+
 
 
 app.post('/profile-upload-multiple', upload.array('profile-files', 12), function (req, res, next) {
