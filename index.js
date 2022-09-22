@@ -68,8 +68,8 @@ app.get('/load-images', function (req, res, next) {
         con.query(sql, function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
+            res.status(200).json(result);
         });
-        res.status(200).json(result);
     } catch (e) {
         return res.status(401).send({
             message: e.message
