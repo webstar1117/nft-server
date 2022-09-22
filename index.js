@@ -7,7 +7,7 @@ var port = 80; //server
 var app = express();
 app.use(cors());
 app.options('*', cors());
-
+app.use(express.static(path.join(__dirname, 'uploads')));
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './uploads')
