@@ -1,6 +1,7 @@
 var express = require('express')
 var multer = require('multer')
 const cors = require('cors');
+var path = require('path');
 var port = 80; //server
 // var port = 3001; //localhost
 
