@@ -1,8 +1,11 @@
 var express = require('express')
 var multer = require('multer')
-var port = 80;
+var port = 80; //server
+// var port = 3001; //localhost
 
-var app = express()
+var app = express();
+app.use(cors());
+app.options('*', cors());
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -19,6 +22,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
+    password: "password",
     password: "password",
     database: "nft"
 
