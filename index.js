@@ -60,7 +60,7 @@ app.post('/upload-single', upload.single('image-file'), function (req, res, next
 
 })
 
-app.post('/load-images', function (req, res, next) {
+app.get('/load-images', function (req, res, next) {
     // req.file is the `profile-file` file
     // req.body will hold the text fields, if there were any
     try {
