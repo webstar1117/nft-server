@@ -1,6 +1,6 @@
 var express = require('express')
 var multer = require('multer')
-var port = 3001;
+var port = 80;
 
 var app = express()
 
