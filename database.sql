@@ -22,9 +22,11 @@ DROP TABLE IF EXISTS `images`;
 
 CREATE TABLE `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `img` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `owner` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

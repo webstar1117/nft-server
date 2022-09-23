@@ -25,7 +25,6 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "password",
-    password: "password",
     database: "nft"
 
 });
@@ -40,19 +39,18 @@ app.use('/a',express.static('/b'));
 Above line would serve all files/folders inside of the 'b' directory
 And make them accessible through http://localhost:3000/a.
 */
-app.use(express.static(__dirname + '/public'));
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('/uploads'));
 
 app.post('/upload-single', upload.single('image-file'), function (req, res, next) {
     // req.file is the `profile-file` file
     // req.body will hold the text fields, if there were any
     try {
-        var sql = `INSERT INTO images (img) VALUES ("${req.file.filename}")`;
+        var sql = `INSERT INTO images (name, description, image, owner, status) VALUES ("${req.body.name},${req.body.description},${req.file.filename},${req.body.owner},0")`;
         con.query(sql, function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
         });
-        res.status(200).json({ path: req.file.path });
+        res.status(200).json({ filename: req.file.filename });
     } catch (e) {
         return res.status(401).send({
             message: e.message
