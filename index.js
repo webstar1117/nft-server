@@ -4,8 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-// var port = 80; //server
-var port = 3001; //localhost
+var port = 80; //server
+// var port = 3001; //localhost
 
 var app = express();
 app.use('/images', express.static(path.join(__dirname, 'uploads')));
@@ -31,7 +31,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "password",//server
+    // password: "",//local
     database: "nft"
 
 });
