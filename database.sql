@@ -25,8 +25,9 @@ CREATE TABLE `images` (
   `name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `owner` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+  `owner` varchar(255) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
